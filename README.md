@@ -9,4 +9,4 @@ if (element.Element("Comarca")?.Value == comarca)
 }
 ```
 ## Explicación por poco uso de IA o páginas web
-Por lo general me ha parecido que no ha sido muy complicada en tema de código esta práctica, con prestar atención en clase se ha podido conseguir sin mucho problema.
+Por lo general no se me ha creado la necesidad de ir a utilizar herramientas de IA durante esta práctica, con haber escuchado y estado atento en clase, he podido solucionar los ejercicios
