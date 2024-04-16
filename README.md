@@ -1,4 +1,4 @@
-# AC3 GUI en c# Tomas Vicente
+# AC3 GUI en C# Tomas Vicente
 ## Usos de IA
 ### Copilot
 - Resultados usados:
