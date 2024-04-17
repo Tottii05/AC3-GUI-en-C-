@@ -28,126 +28,61 @@ namespace ac3
             }
         }
 
-private void saveBtn_Click(object sender, EventArgs e)
-{
-    int year, poblacion, domesticXarxa, activities, total;
-    double consumPerCapita;
-    string comarca;
-
-    yearErrorProvider.Clear();
-    comarcaErrorProvider.Clear();
-    poblationErrorProvider.Clear();
-    domesticXarxaErrorProvider.Clear();
-    AEErrorProvider.Clear();
-    PerCapitaErrorProvider.Clear();
-    TotalErrorProvider.Clear();
-
-    try
-    {
-        year = int.Parse(yearComboBox.Text);
-        if (year < 0)
-            throw new Exception();
-    }
-    catch (Exception)
-    {
-        yearErrorProvider.SetError(yearComboBox, "El año debe ser un número positivo y no estar vacío.");
-        return;
-    }
-
-    try
-    {
-        comarca = comarcaComboBox.Text;
-        if (comarca == string.Empty)
+        private void saveBtn_Click(object sender, EventArgs e)
         {
-            throw new Exception();
+            try
+            {
+                if (string.IsNullOrEmpty(poblationTextBox.Text))
+                {
+                    poblationErrorProvider.SetError(poblationTextBox, "El campo de población no puede estar vacío.");
+                }
+                if (string.IsNullOrEmpty(domesticXarxaTextBox.Text))
+                {
+                    domesticXarxaErrorProvider.SetError(domesticXarxaTextBox, "El campo de doméstico xarxa no puede estar vacío.");
+                }
+                if (string.IsNullOrEmpty(activitiesTextBox.Text))
+                {
+                    AEErrorProvider.SetError(activitiesTextBox, "El campo de actividades económicas y fuentes propias no puede estar vacío.");
+                }
+                if (string.IsNullOrEmpty(textBox3.Text))
+                {
+                    TotalErrorProvider.SetError(textBox3, "El campo de total no puede estar vacío.");
+                }
+                if (string.IsNullOrEmpty(domesticCapitaTextBox.Text))
+                {
+                    PerCapitaErrorProvider.SetError(domesticCapitaTextBox, "El campo de consumo doméstico per cápita no puede estar vacío.");
+                }
+                if (string.IsNullOrEmpty(yearComboBox.Text))
+                {
+                    yearErrorProvider.SetError(yearComboBox, "El campo de año no puede estar vacío.");
+                }
+                if (string.IsNullOrEmpty(comarcaComboBox.Text))
+                {
+                    comarcaErrorProvider.SetError(comarcaComboBox, "El campo de comarca no puede estar vacío.");
+                }
+                Consum consum = new Consum
+                {
+                    Any = int.Parse(yearComboBox.Text),
+                    Comarca = comarcaComboBox.Text,
+                    Poblacio = int.Parse(poblationTextBox.Text),
+                    Domestic_xarxa = int.Parse(domesticXarxaTextBox.Text),
+                    Activitats_economiques_i_fonts_propies = int.Parse(activitiesTextBox.Text),
+                    Total = int.Parse(textBox3.Text),
+                    Consum_domestic_per_capita = double.Parse(domesticCapitaTextBox.Text)
+                };
+
+                using (var writer = new StreamWriter("../../../files/Consum_d_aigua_a_Catalunya_per_comarques_20240402.csv", append: true))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteRecord(consum);
+                }
+
+                ReloadDataGrid();
+            }
+            catch(Exception ex)
+            {
+            }
         }
-    }
-    catch (Exception)
-    {
-        comarcaErrorProvider.SetError(comarcaComboBox, "La comarca no puede estar vacía.");
-        return;
-    }
-
-    try
-    {
-        poblacion = int.Parse(poblationTextBox.Text);
-        if (poblacion < 0)
-            throw new Exception();
-        poblationErrorProvider.Clear();
-    }
-    catch (Exception)
-    {
-        poblationErrorProvider.SetError(poblationTextBox, "La población debe ser un número positivo y no estar vacía.");
-        return;
-    }
-
-    try
-    {
-        domesticXarxa = int.Parse(domesticXarxaTextBox.Text);
-        if (domesticXarxa < 0)
-            throw new Exception();
-        domesticXarxaErrorProvider.Clear();
-    }
-    catch (Exception)
-    {
-        domesticXarxaErrorProvider.SetError(domesticXarxaTextBox, "El consumo doméstico de la red debe ser un número positivo y no estar vacío.");
-        return;
-    }
-
-    try
-    {
-        activities = int.Parse(activitiesTextBox.Text);
-        if (activities < 0)
-            throw new Exception();
-        AEErrorProvider.Clear();
-    }
-    catch (Exception)
-    {
-        AEErrorProvider.SetError(activitiesTextBox, "El consumo de actividades económicas y fuentes propias debe ser un número positivo y no estar vacío.");
-        return;
-    }
-
-    try
-    {
-        consumPerCapita = double.Parse(domesticCapitaTextBox.Text);
-        if (consumPerCapita < 0)
-            throw new Exception();
-        PerCapitaErrorProvider.Clear();
-    }
-    catch (Exception)
-    {
-        PerCapitaErrorProvider.SetError(domesticCapitaTextBox, "El consumo doméstico per cápita debe ser un número positivo y no estar vacío.");
-        return;
-    }
-
-    try
-    {
-        total = int.Parse(totalTextBox.Text);
-        if (total < 0)
-            throw new Exception();
-        TotalErrorProvider.Clear();
-    }
-    catch (Exception)
-    {
-        TotalErrorProvider.SetError(totalTextBox, "El consumo total debe ser un número positivo y no estar vacío.");
-        return;
-    }
-
-    Consum consume = new Consum
-    {
-        Any = year,
-        Comarca = comarcaComboBox.Text,
-        Poblacio = poblacion,
-        Domestic_xarxa = domesticXarxa,
-        Activitats_economiques_i_fonts_propies = activities,
-        Total = total,
-        Consum_domestic_per_capita = consumPerCapita
-    };
-
-    Helper.AppendConsum(consume, "../../../files/Consum_d_aigua_a_Catalunya_per_comarques_20240402.csv");
-    ReloadDataGrid();
-}
-
 
         private void ReloadDataGrid()
         {
@@ -267,6 +202,14 @@ private void saveBtn_Click(object sender, EventArgs e)
                 biggestConsumShowValue.Text = isBiggestConsumPerCapita ? "Sí" : "No";
                 bool isLowestConsumPerCapita = consumPerCapita == listConsum.Min(x => x.Consum_domestic_per_capita);
                 lowestConsumShowValue.Text = isLowestConsumPerCapita ? "Sí" : "No";
+            }
+        }
+
+        private void poblationTextBox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(poblationTextBox.Text))
+            {
+                poblationErrorProvider.SetError(poblationTextBox, "El campo de población no puede estar vacío.");
             }
         }
     }

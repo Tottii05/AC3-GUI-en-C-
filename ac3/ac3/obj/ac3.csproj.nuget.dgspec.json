@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomas\\Desktop\\clases\\Programación\\forms\\ac3\\ac3\\ac3.csproj": {}
+    "E:\\TomasVicente\\Programacion\\ac3\\ac3\\ac3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomas\\Desktop\\clases\\Programación\\forms\\ac3\\ac3\\ac3.csproj": {
+    "E:\\TomasVicente\\Programacion\\ac3\\ac3\\ac3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomas\\Desktop\\clases\\Programación\\forms\\ac3\\ac3\\ac3.csproj",
+        "projectUniqueName": "E:\\TomasVicente\\Programacion\\ac3\\ac3\\ac3.csproj",
         "projectName": "ac3",
-        "projectPath": "C:\\Users\\tomas\\Desktop\\clases\\Programación\\forms\\ac3\\ac3\\ac3.csproj",
-        "packagesPath": "C:\\Users\\tomas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomas\\Desktop\\clases\\Programación\\forms\\ac3\\ac3\\obj\\",
+        "projectPath": "E:\\TomasVicente\\Programacion\\ac3\\ac3\\ac3.csproj",
+        "packagesPath": "C:\\Users\\prof\\.nuget\\packages\\",
+        "outputPath": "E:\\TomasVicente\\Programacion\\ac3\\ac3\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\tomas\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\prof\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

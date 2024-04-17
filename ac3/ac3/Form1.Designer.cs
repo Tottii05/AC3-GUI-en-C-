@@ -163,6 +163,7 @@
             poblationTextBox.Name = "poblationTextBox";
             poblationTextBox.Size = new Size(100, 23);
             poblationTextBox.TabIndex = 4;
+            poblationTextBox.Validating += poblationTextBox_Validating;
             // 
             // label4
             // 

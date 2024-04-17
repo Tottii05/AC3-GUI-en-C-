@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "L4Vq5lCfFuXyAEzGXC+MC3pzT5zf/MgblRry//rrl6nDadxZck6IfAlUGwMbfGY2m7zgi4KzWue92QVPd3SoPA==",
+  "dgSpecHash": "pNs9Tq5hkJZrLynztAWbnLI0yni1M2T22t+10SBYsLNGn4uv2Ujh2yGy+aT3gtJORw/52CtJybU/E3yGUdnGEw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tomas\\Desktop\\clases\\Programación\\forms\\ac3\\ac3\\ac3.csproj",
+  "projectFilePath": "E:\\TomasVicente\\Programacion\\ac3\\ac3\\ac3.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\tomas\\.nuget\\packages\\csvhelper\\31.0.3\\csvhelper.31.0.3.nupkg.sha512"
+    "C:\\Users\\prof\\.nuget\\packages\\csvhelper\\31.0.3\\csvhelper.31.0.3.nupkg.sha512"
   ],
   "logs": []
 }
